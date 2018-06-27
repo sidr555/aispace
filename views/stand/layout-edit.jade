@@ -1,0 +1,90 @@
+extends ../page_layout
+
+block page
+    //.page(data-page="stand-layout-edit", data-id=id, data-cells=cells)
+    .page(data-page="stand-layout-edit", data-id=id)
+        .navbar
+            .navbar-inner
+                .center Схема стенда
+
+        .toolbar
+            .toolbar-inner
+                .button.button-raised.button-fill.color-green(data-action="row")
+                    i.f7-icons.size-12 more_vertical
+                    span  Полки
+                .button.button-raised.button-fill.color-green.need-row(data-action="cell")
+                    i.f7-icons.size-12 more
+                    span  Ячейки
+                //.button.button-raised.button-fill.color-green.need-2-cell(data-action="stuff") Товары
+
+
+                //.button.button-raised.button-fill.color-green.add-row-button
+                //    i.f7-icons.size-12 add_round
+                //    span  полка
+                //.button.button-raised.button-fill.color-green.add-cell-button.need-1-row
+                //    i.f7-icons.size-12 add_round
+                //    span  ячейка
+                //
+                //.button.button-raised.button-fill.color-red.remove-row-button.need-row
+                //    i.f7-icons.size-12 delete_round
+                //    span  полка
+                //
+                //.button.button-raised.button-fill.color-red.remove-cell-button.need-cell
+                //    i.f7-icons.size-12 delete_round
+                //    span  ячейка
+                //
+                //.button.button-raised.button-fill.color-orange.toggle-stuff-button.need-2-cell
+                //    i.f7-icons.size-12 reload_round
+                //    span  товары
+                //
+                //.button.button-raised.button-fill.color-orange.toggle-cell-button.need-2-cell Поменять ячейки
+                //.button.button-raised.button-fill.color-orange.toggle-cell-button.need-2-cell Поменять полки
+                //
+                //.button.button-raised.button-fill.color-orange.join-stuff-button.need-2-cell Объединить
+                //.button.button-raised.button-fill.color-orange.split-stuff-button.need-cell Разделить
+                //
+                //.button.button-raised.button-fill.color-blue(data-action="view")
+                a.button.button-raised.button-fill.color-blue(href="/stand/"+id+"/view")
+                    i.f7-icons.size-12 eye
+                    span  Смотреть
+
+                #undo-button.button.button-raised.button-fill.color-blue.inactive(data-action="undo")
+                    i.f7-icons.size-12 undo
+                    span  Отменить
+
+                #save-button.button.button-raised.button-fill.color-blue.inactive(data-action="save")
+                    i.f7-icons.size-12 check
+                    span  Сохранить
+
+                //-a.button.button-raised.button-fill.color-teal(href="/db") Все модели
+                //-a.button.button-raised.button-fill.color-deeporange(href="/db/" + modelName)= modelTitle
+
+                //-a.button.button-raised.button-fill.color-red(href="/db/" + modelName + "/delete/" + itemData.id) Удалить
+                //-.delete-item.button.button-raised.button-fill.color-red Удалить
+                //-input#save-model.button.button-raised.button-fill.color-green(type="submit", value="Сохранить", style="width:100px")
+
+        .page-content
+            .stand-layout
+                //-
+                    .row
+                        .cell.col-50
+                            .cell-inner 1
+                            //.cell-resizer
+
+                        .cell.col-20
+                            .cell-inner 2
+
+                        .cell.col-30
+                            .cell-inner 3
+
+                    .row
+                        .cell.col-80
+                            .cell-inner 4
+                        .cell.col-20
+                            .cell-inner 5
+
+                    .row
+                        .cell.col-50
+                            .cell-inner 6
+                        .cell.col-50
+                            .cell-inner 7

@@ -1,0 +1,33 @@
+extends ../page_layout
+
+block page
+  .page(data-page="model-" + modelName)
+
+    .navbar
+      .navbar-inner
+        .center= modelTitle
+
+    .toolbar
+      .toolbar-inner
+          a.button(href="/db") Все модели
+          a.button(href="/db/" + modelName + "/add") Добавить
+
+    .page-content
+      .list-block
+        //.list-block-label Выбери модель - label
+        ul
+          each item in list
+            li
+              a.item-link(href="/db/" + modelName + "/" + item.id)
+                .item-content
+                  .item-media
+                    .icon.my-icon= item.id
+                  .item-inner
+                    if item.getTitle
+                      //- console.log(item.getTitle.toString())
+                      .item-title= item.getTitle()
+                    else if item.name
+                      .item-title= item.name
+                    else
+                      .item-title= item.id
+

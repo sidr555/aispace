@@ -1,0 +1,10 @@
+{
+  "verbose": false,
+  "ignore": [".git", "grunt.log", "web"],
+  "ext": "coffee js json jade",
+  "watch": [
+    "views/*",
+    "views/*/*",
+    "*"
+  ]
+}

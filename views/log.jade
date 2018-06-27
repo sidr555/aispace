@@ -1,0 +1,11 @@
+.card
+    .card-header Журнал действий с объектом
+    .card-content
+        .card-content-inner
+            .list-block
+                ul
+                    each item in log
+                        li
+                            .item-content
+                                .item-inner
+                                    .item-title= item.getTitle()

@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+
+  form(action="/shop/add", method="post")
+    .content-block-title Новая витрина
+      .list-block
+        ul
+          li
+            .item-content
+              .item-media
+                i.icon.f7-icons card
+              .item-inner
+                .item-input
+                  input(type="text", placeholder="Название")
+
+          li
+            .item-content
+              .item-media
+                i.icon.f7-icons home
+              .item-inner
+                .item-input
+                  input(type="text", placeholder="Адрес")
+
+          li
+            .item-content
+              .item-media
+                i.icon.f7-icons world
+              .item-inner
+                .item-input
+                  input(type="text", placeholder="Широта")
+                .item-input
+                  input(type="text", placeholder="Долгота")
+
+
+

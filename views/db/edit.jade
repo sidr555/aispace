@@ -1,0 +1,103 @@
+extends ../page_layout
+
+block page
+  .page.model-item-page(data-page="model-item", data-model=model.id, data-item=itemData.id)
+
+
+      .navbar
+        .navbar-inner
+            .center #{modelTitle} - изменить
+
+      .toolbar
+        .toolbar-inner
+          a.button.button-raised.button-fill.color-teal(href="/db") Все модели
+          a.button.button-raised.button-fill.color-deeporange(href="/db/" + modelName)= modelTitle
+
+          //-a.button.button-raised.button-fill.color-red(href="/db/" + modelName + "/delete/" + itemData.id) Удалить
+          .delete-item.button.button-raised.button-fill.color-red Удалить
+          input#save-model.button.button-raised.button-fill.color-green(type="submit", value="Сохранить", style="width:100px")
+
+      .page-content
+        form.ajax-submit(action="/db/" + modelName + "/save", method="POST")
+          .list-block.inset
+            ul
+              each fieldConfig,field in fields
+                li
+                  .item-content
+                    .item-inner
+                      //- console.log("FIELD Data", fieldData)
+                      if fieldConfig.title
+                        .item-title.label= fieldConfig.title
+                      else
+                        .item-title.label= field
+
+                      .item-input
+                        if fieldConfig.template
+                          != render(fieldConfig.template, {id: itemData.id, data: itemData[field]})
+                        else if fieldConfig.decorate
+                          != fieldConfig.decorate(itemData[field])
+
+                        else
+                          input(type='text', name=field, value=itemData[field])
+
+
+        if belongsTo
+          //- console.log("BEL", belongsTo);
+          for dep in belongsTo
+            .card
+              .card-header= dep.model.title
+              .card-content
+                .card-content-inner
+                  .list-block
+                    ul
+                      li
+                        if dep.error
+                          .item-content
+                            .item-media
+                              .icon.my-icon Ошибка
+                            .item-inner
+                              .item-title= dep.error
+                        else
+                          a.item-link(href="/db/" + dep.model.id + "/" + dep.data.id)
+                            .item-content
+                              .item-media
+                                .icon.my-icon= dep.data.id
+                              .item-inner
+                                .item-title= dep.data.title
+
+
+        if hasMany
+          //- console.log("HAS", hasMany);
+          for dep in hasMany
+            .card
+              .card-header= dep.model.title
+              .card-content
+                .card-content-inner
+                  .list-block
+                    ul
+                      each depItem in dep.items
+                        li
+                          a.item-link(href="/db/" + dep.model.id + "/" + depItem.id)
+                            .item-content
+                              .item-media
+                                .icon.my-icon= depItem.id
+                              .item-inner
+                                .item-title= depItem.getTitle ? depItem.getTitle() : depItem.name || depItem.id
+
+
+        if log && log.length
+          .card
+            .card-header Журнал действий с объектом
+            .card-content
+              .card-content-inner
+                .list-block
+                  ul
+                    each item in log
+                      li
+                        a.item-link(href="/db/log/"+ item.id)
+                          .item-content
+                            .item-media
+                              .icon.my-icon= item.time
+                            .item-inner
+                              .item-title= item.getInfo()
+

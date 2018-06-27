@@ -1,0 +1,47 @@
+extends ../page_layout
+
+block page
+    .page(data-page="login")
+
+        .navbar
+            .navbar-inner
+                .center= title
+
+        .page-content
+
+            include ../message_view.jade
+
+            form.ajax-submit(action='/user/login', method='POST')
+                //form.ajax-submit-onchange(action='/auth/login', method='post', enctype="multipart/form-data")
+                .list-block
+                    ul
+                        li
+                            .item-content
+                                .item-media
+                                    i.icon.f7-icons at
+                                .item-inner
+                                    .item-input
+                                        input(name='email', type="text", placeholder="Email")
+
+                        li
+                            .item-content
+                                .item-media
+                                    i.icon.f7-icons lock
+                                .item-inner
+                                    .item-input
+                                        input(name='password', type="password", placeholder="Пароль")
+
+                        li &nbsp;
+                        li
+                            input.button.button-big.button-round(type="submit", value="Войти")
+                            //-.item-content
+                                .item-inner
+                                    button(type='login') Войти
+
+                        li &nbsp;
+
+
+        .toolbar
+            .toolbar-inner
+                a.link(href="/user/register") Регистрация
+                a.link(href="/user/remember") Забыли пароль?

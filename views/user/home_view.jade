@@ -1,0 +1,16 @@
+extends ../main_layout
+
+block page
+  .page(data-page="home")
+
+    .navbar
+      .navbar-inner
+        .center= title
+
+    .toolbar
+      .toolbar-inner
+        a.link(href="/user/logout") Выход
+
+    .page-content
+      h1 Страница пользователя #{user.email}
+      p Тут будет корзина и прочая хрень

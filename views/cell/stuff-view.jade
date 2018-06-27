@@ -1,0 +1,29 @@
+extends ../page_layout
+
+block page
+  .page(data-page="cell-stuff-view", data-id=cell.id)
+    .navbar
+      .navbar-inner
+        .center Товар в ячейке
+
+    .page-content
+      if stuff
+        .card
+          .card-header Товар в ячейке
+          .card-content
+            include ../stuff/card
+
+        .card
+          .card-header Выбрать товар
+          .card-content
+            .cell-stuff-layout.list-block 
+              ul
+                - for item in allStuff
+                  li
+                    a(href="#").item-link.item-content
+                      .item-inner
+                        .item-title= item.name
+
+
+
+

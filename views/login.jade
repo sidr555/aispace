@@ -1,0 +1,31 @@
+.login-screen
+  .view
+    .page
+      .page-content.login-screen-content
+        .login-screen-title AiSpace
+        form(method="POST", action="/user/login")
+          .list-block
+            ul
+              li.item-content
+                .item-inner
+                  .item-title.label Email
+                  .item-input
+                    input(type="text",name="username",placeholder="Email")
+
+              li.item-content
+                .item-inner
+                  .item-title.label Пароль
+                  .item-input
+                    input(type="password", name="password", placeholder="Пароль")
+
+          .list-block
+            ul
+              li
+                //a.item-link.list-button(href="/user/login") Войти
+                button.item-link.list-button(type="submit", value="") Войти
+
+            .list-block-label
+              p
+                a(href="/user/register") Новый пользователь
+                span &nbsp; | &nbsp;
+                a(href="/user/remember") Забыли пароль?

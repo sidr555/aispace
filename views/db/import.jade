@@ -1,0 +1,41 @@
+extends ../page_layout
+
+block page
+  .page(data-page="db-models")
+
+    .navbar
+      .navbar-inner
+        .center Импорт
+
+    //-.toolbar
+      .toolbar-inner
+        a.button(onclick=) Загрузить
+
+    .page-content
+      .list-block
+        form.ajax-submit(action="/db/import", method="POST")
+          ul
+            li
+              a.button.file-button.external
+                input(type="file", name="file")
+                input(type="hidden", name="test", value="112")
+            li
+              input.button(type="submit", value="Загрузить")
+
+    //.list-block-label Выбери модель - label
+        //-ul
+          each model,modelName in models
+            li
+              a.item-link(href="/db/" + modelName)
+                .item-content
+                  //-.item-media
+                    .icon.my-icon -
+                  .item-inner
+                    if model.config.title
+                      .item-title= model.config.title
+                    else
+                      .item-title= modelName
+                    //-.item-after ???
+
+
+

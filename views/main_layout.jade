@@ -1,0 +1,28 @@
+doctype html
+html
+  meta(charset="utf-8")
+  meta(name="viewport",content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui")
+  meta(name="apple-mobile-web-app-capable", content="yes")
+
+  meta(name="theme-color", content="#2196f3")
+
+  title AISpace
+
+
+  link(rel="stylesheet", href="/css/framework7.ios.min.css")
+  link(rel="stylesheet", href="/css/framework7.ios.colors.min.css")
+  link(rel="stylesheet", href="/css/framework7-icons.css")
+
+  link(rel="stylesheet", href="/css/aispace.css")
+
+body
+  .views
+    .view.view-main
+      .pages.navbar-fixed.toolbar-fixed
+
+        block page
+
+  include ./login
+
+  script(type="text/javascript", src="/js/framework7.min.js")
+  script(type="text/javascript", src="/js/aispace.js")

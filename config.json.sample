@@ -1,0 +1,11 @@
+{
+  "express": {
+    "address": "127.0.0.1",
+    "port": 8555
+  },
+  "redis": {
+    "host": "192.168.0.44",
+    "port": 6379,
+    "secret": "duH73j00"
+  }
+}

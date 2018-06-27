@@ -1,0 +1,43 @@
+extends ../page_layout
+
+block page
+    .page(data-page="register")
+
+        .navbar
+            .navbar-inner
+                .center= title
+
+        .page-content
+            include ../message_view.jade
+
+            form.ajax-submit(action='/user/register' method='post')
+                .list-block
+                    ul
+                        li
+                            .item-content
+                                .item-media
+                                    i.icon.f7-icons at
+                                .item-inner
+                                    .item-input
+                                        input(name='email', type="text", placeholder="Email")
+
+                        li
+                            .item-content
+                                .item-media
+                                    i.icon.f7-icons lock
+                                .item-inner
+                                    .item-input
+                                        input(name='password', type="password", placeholder="Пароль")
+
+                        li &nbsp;
+                        li
+                            input.button.button-big.button-round(type="submit", value="Зарегистрировать")
+
+                        li &nbsp;
+
+
+        .toolbar
+            .toolbar-inner
+                a.link(href="/user/login") Вход
+
+

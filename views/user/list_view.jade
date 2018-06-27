@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+  div список
+
+  table
+    tr
+      th Id
+      th Email
+      th Имя
+      th Администратор
+
+    if users && users.length
+      - for (var i=0; i<users.length; i++)
+        tr
+          - var user = users[i];
+          td= user.id
+          td= user.email
+          td= user.name
+          td= user.admin
+
+
+

@@ -1,0 +1,25 @@
+extends main_layout
+
+block page
+  .page(data-page="index")
+
+    .navbar
+      .navbar-inner
+        .center AiSTUFF
+
+    .toolbar
+      .toolbar-inner
+        if user
+          a.link(href="/user/logout") Выход
+        else
+          a.link(href="/user/register") Регистрация
+          a.link(href="/user/login") Войти
+
+    .page-content
+      h1= message
+      h2= error.status
+      pre #{error.stack}
+
+
+
+

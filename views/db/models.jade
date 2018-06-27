@@ -1,0 +1,36 @@
+extends ../page_layout
+
+block page
+  .page(data-page="db-models")
+
+    .navbar
+      .navbar-inner
+        .center Все модели
+
+
+    .toolbar
+      .toolbar-inner
+        //a.button(href="#", onclick="window.location='/db/export';return false;") Экспорт
+        a.button.external(href="/db/export") Экспорт
+        a.button(href="/db/import") Импорт
+
+    .page-content
+      .list-block
+        //.list-block-label Выбери модель - label
+        ul
+          each model in models
+            unless model.config.hide
+              li
+                a.item-link(href="/db/" + model.id)
+                  .item-content
+                    //-.item-media
+                      .icon.my-icon -
+                    .item-inner
+                      if model.config.title
+                        .item-title= model.config.title
+                      else
+                        .item-title= modelName
+                      //-.item-after ???
+
+
+

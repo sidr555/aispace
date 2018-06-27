@@ -1,0 +1,2 @@
+class Adapter
+  constuctor: (id) ->

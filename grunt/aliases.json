@@ -1,0 +1,14 @@
+{
+  "css": [
+    "clean:css",
+    "less"
+  ],
+  "js": [
+    "clean:js",
+    "browserify"
+  ],
+  "dev": [
+    "js",
+    "css"
+  ]
+}

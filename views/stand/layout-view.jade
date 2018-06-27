@@ -1,0 +1,23 @@
+extends ../page_layout
+
+block page
+    .page(data-page="stand-layout-view", data-id=id)
+        .navbar
+            .navbar-inner
+                .center= stand.name
+
+        .page-content
+            .stand-layout
+                - for row in rows
+                    .row
+                        - for cell in row.cells
+                            //.cell.col-#{cell.col}
+                            if cell.stuff && cell.stuff.name
+                                .cell(class="col-" + cell.col, data-id=cell.id, data-stuff=cell.idStuff, data-controller=cell.idController)
+                                    .cell-inner.nosel= cell.stuff.name
+                                    if cell.idController
+                                        i.cell-led.f7-icons circle_fill
+                            else
+                                .cell(class="col-" + cell.col)
+
+

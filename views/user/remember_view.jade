@@ -1,0 +1,13 @@
+extends ../page_layout
+
+block page
+    div Тут будет форма напоминания пароля
+    //-.hidden
+        form(action='/user/remember' method='post')
+
+            input(type='email' name='email' placeholder='Email', value="sidr@sidora.net")
+            button(type='reg') Напомнить
+
+        a.btn(href="/user/login") Вход
+        span  |
+        a.btn(href="/user/register") Регистрация

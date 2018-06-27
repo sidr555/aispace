@@ -1,0 +1,30 @@
+extends ../page_layout
+
+block page
+  .page(data-page="controller-points-view", data-id=id)
+    .navbar
+      .navbar-inner
+        .center Конечные контроллеры
+
+    .page-content
+      .points-layout.list-block 
+        ul
+          - for point in points
+            li
+              a(href="#").item-link.item-content
+                .item-inner
+                  .item-title= point.id
+                  .item-after= point.state
+          
+        //-table
+          tr
+            th UID
+            th Состояние
+          - for point in points
+            tr
+              td= point.uid
+              td= point.state
+
+
+
+

@@ -1,0 +1,31 @@
+extends ../page_layout
+
+block page
+  .page.model-item-page(data-page="model-item", data-model=modelName)
+
+      .navbar
+        .navbar-inner
+            .center #{modelTitle} - добавить
+
+      .toolbar
+        .toolbar-inner
+          a.button(href="/db") Все модели
+          a.button(href="/db/" + modelName)= modelTitle
+          input#save-model.button(type="submit", value="Сохранить", style="width:100px")
+
+      .page-content
+        form.ajax-submit(action="/db/" + modelName + "/save", method="POST")
+          .list-block.inset
+            ul
+              for fieldData,field in fields
+                li
+                  .item-content
+                      .item-inner
+
+                        if fieldData.title
+                            .item-title.label= fieldData.title
+                        else
+                            .item-title.label= field
+
+                        .item-input
+                            input(type='text', name=field, placeholder='...')
